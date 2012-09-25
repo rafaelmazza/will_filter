@@ -5,9 +5,9 @@
         </td>
         <td style='text-align:right'>
 						<% if results.total_count > 0 %>
-							Showing <%= results.offset_value + 1 %> - <%= results.offset_value + results.length %> of <%= results.total_count %>
+							<%= t('paging.display') %> <%= results.offset_value + 1 %> - <%= results.offset_value + results.length %> <%= t('paging.of') %> <%= results.total_count %>
 						<% else %>	
-							No results found
+							<%= t('paging.no_results') %>
 						<% end %>
         </td>
     </tr>

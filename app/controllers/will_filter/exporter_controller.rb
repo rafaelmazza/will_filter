@@ -37,12 +37,12 @@ module WillFilter
       @wf_filter = WillFilter::Filter.deserialize_from_params(params)
       
       if @wf_filter.custom_format?
-        send_data(@wf_filter.process_custom_format, :type => 'text', :charset => 'utf-8')
+        send_data(*@wf_filter.process_custom_format)
         return
       end
       
       unless @wf_filter.valid_format?
-        render :text => "The export format is not supported (#{@wf_filter.format})"
+        render :text => I18n.t("export.errors.messages.format_not_supported", :format => @wf_filter.format)
         return     
       end
       
@@ -87,7 +87,7 @@ module WillFilter
     
     def send_csv_data(wf_filter)
       csv_string = CSV.generate do |csv|
-        csv << wf_filter.fields
+        csv << wf_filter.fields.map { |field| wf_filter.condition_title_for(field) }
         wf_filter.results.each do |obj|
           row = []
           wf_filter.fields.each do |field|

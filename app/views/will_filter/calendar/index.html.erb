@@ -9,7 +9,7 @@
     <%=link_to_function(image_tag("will_filter/close.gif", :title=>"Close"), "wfCalendar.hide()")%>
   </div>
 	
-  Calendar
+  <%= t('calendar.title') %>
 </div>  
 <div class="wf_calendar_container">
 <%= form_tag({:controller => "/will_filter/calendar"}, {:method => :get, :id => "wf_calendar_form"}) do %>
@@ -36,15 +36,15 @@
 		<% if @calendar.show_time? %>
 		  <div style="text-align:center; margin-top:10px; padding:5px; border-top:1px solid #ccc;">
  	        <div style="margin:5px;">
-				      Time: &nbsp; 
+				      <%= t('calendar.time') %>: &nbsp; 
 				      <%= select_tag("wf_calendar_hour", options_for_select(WillFilter::Calendar.hour_options, @calendar.hour)) %>
 				      :
 				      <%= select_tag("wf_calendar_minute", options_for_select(WillFilter::Calendar.minute_options, @calendar.minute)) %>
 				      :
 				      <%= select_tag("wf_calendar_second", options_for_select(WillFilter::Calendar.second_options, @calendar.second)) %>
 			    </div>
-		      <%=link_to_function("<span>Set Date and Time</span>".html_safe, "wfCalendar.setDateTime()", :class => "wf_grey_button wf_pcb") %>
-		      <%=link_to_function("<span>Cancel</span>".html_safe, "wfCalendar.hide()", :class => "wf_grey_button wf_pcb") %>
+		      <%=link_to_function("<span>#{t('calendar.set_date_and_time')}</span>".html_safe, "wfCalendar.setDateTime()", :class => "wf_grey_button wf_pcb") %>
+		      <%=link_to_function("<span>#{t('calendar.cancel')}</span>".html_safe, "wfCalendar.hide()", :class => "wf_grey_button wf_pcb") %>
 		  </div>
 		<% end %>
 	

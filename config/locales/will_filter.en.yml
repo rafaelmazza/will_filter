@@ -1,0 +1,76 @@
+en:
+  loading: "Loading..."
+  toggle_conditions: "Toggle Conditions"
+  match_conditions_html: "Match %{conditions} of the following conditions:"
+  filter:
+    select: "Select default filter"
+    match:
+      all: "all"
+      any: "any"
+    hint:
+      no_filter: "You haven't added any filter conditions, so all of the results were returned. Use the \"Add\" button in the bottom left corner to add a new condition or select a predefined filter from a drop-down list above."
+    save: "Save As New..."
+    update: "Update"
+    delete: "Delete"
+    export: "Export Data..."
+    conditions:
+      add: "+ Add"
+      clear: "Clear"
+    per_page: "Per Page"
+    submit: "Submit Filter"
+    select_saved: "Select saved filter"
+    containers:
+      boolean:
+        true_label: "True"
+        false_label: "False"
+    order:
+      title: "Order"
+      desc: "desc"
+      asc: "asc"
+    operators:
+      is: "is"
+      is_not: "is not"
+      is_in: "is in"
+      is_provided: "is provided"
+      is_not_provided: "is not provided"
+      contains: "contains"
+      does_not_contain: "does not contain"
+      starts_with: "starts with"
+      ends_with: "ends with"
+      is_on: "is on"
+      is_after: "is after"
+      is_before: "is before"
+      is_in_the_range: "is in the range"
+      is_greater_than: "is grater than"
+      is_less_than: "is less than"
+      is_filtered_by: "is filtered by"
+    messages:
+      new_filter_name: "Please provide a name for the new filter:"
+      update_filter_name: "Please provide a name for this filter:"
+      delete_filter_confirmation: "Are you sure you want to delete this filter?"
+    errors:
+      messages:
+        required_conditions_not_met: "Filter must contain at least one of the following conditions: %{conditions}"
+  calendar:
+    title: "Calendar"
+    set_date_and_time: "Set Date and Time"
+    cancel: "Cancel"
+    time: "Time"
+  paging:
+    display: "Showing"
+    of: "of"
+    no_results: "No results found"
+  export:
+    title: "Exporter"
+    name: "Name"
+    type: "Type"
+    format: "Format"
+    formats: "Generic formats"
+    cancel: "Cancel"
+    export: "Export"
+    custom_formats: "Custom formats"
+    errors:
+      messages:
+        select_field: "Please select at least one field to export"
+        select_format: "Please select an export format"
+        format_not_supported: "The export format is not supported (%{format})"

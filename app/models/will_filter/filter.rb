@@ -269,17 +269,18 @@ module WillFilter
     end
     
     def match_options
-      [["all", "all"], ["any", "any"]]
+      [[I18n.t("filter.match.all"), "all"], [I18n.t("filter.match.any"), "any"]]
     end
     
     def order_type_options
-      [["desc", "desc"], ["asc", "asc"]]
+      [[I18n.t("filter.order.desc"), "desc"], [I18n.t("filter.order.asc"), "asc"]]
     end
   
     #############################################################################
     # Can be overloaded for custom titles
     #############################################################################
     def condition_title_for(key)
+      return I18n.t("activerecord.attributes.#{model_class.to_s.downcase}.#{key}") if definition.keys.include?(key)
       title = key.to_s.gsub(".", ": ").gsub("_", " ").split("/").last
       title.split(" ").collect{|part| part.capitalize}.join(" ")
     end
@@ -299,7 +300,7 @@ module WillFilter
       
       opers = definition[condition_key]
       raise WillFilter::FilterException.new("Invalid condition #{condition_key} for filter #{self.class.name}") unless opers
-      sorted_operators(opers).collect{|o| [o.to_s.gsub('_', ' '), o]}
+      sorted_operators(opers).collect{|o| [I18n.t("filter.operators.#{o}"), o]}
     end
     
     # called by the list container, should be overloaded in a subclass
@@ -541,7 +542,7 @@ module WillFilter
       end
       
       unless required_conditions_met?
-        @errors[:filter] = "Filter must contain at least one of the following conditions: #{required_condition_keys.join(", ")}"
+        @errors[:filter] = I18n.t("filter.errors.messages.required_conditions_not_met", :conditions => required_condition_keys.join(", "))
       end
       
       errors?
@@ -644,12 +645,12 @@ module WillFilter
         if include_default
           filters = default_filters
           if (filters.size > 0)
-            filters.insert(0, ["Select default filter", "-1"])
+            filters.insert(0, [I18n.t('filter.select'), "-1"])
           end
         end
   
         if user_filters.any?
-          filters << ["Select saved filter", "-2"] if include_default
+          filters << [I18n.t('filter.select_saved'), "-2"] if include_default
           user_filters.each do |filter|
             filters << [filter.name, filter.id.to_s]
           end
@@ -717,12 +718,12 @@ module WillFilter
     #############################################################################
     def export_formats
       formats = []
-      formats << ["Generic formats", -1]
+      formats << [I18n.t("export.formats"), -1] if WillFilter::Config.default_export_formats.size > 0
       WillFilter::Config.default_export_formats.each do |frmt|
         formats << [frmt, frmt]
       end
       if custom_formats.size > 0
-        formats << ["Custom formats", -2]
+        formats << [I18n.t("export.custom_formats"), -2]
         custom_formats.each do |frmt|
           formats << frmt
         end
