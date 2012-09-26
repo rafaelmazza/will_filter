@@ -723,7 +723,7 @@ module WillFilter
         formats << [frmt, frmt]
       end
       if custom_formats.size > 0
-        formats << [I18n.t("export.custom_formats"), -2]
+        formats << [I18n.t("export.custom_formats"), -1]
         custom_formats.each do |frmt|
           formats << frmt
         end

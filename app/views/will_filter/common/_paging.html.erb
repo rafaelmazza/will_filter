@@ -1,0 +1,14 @@
+<table class='wf_paginator' style="margin-top:10px; margin-bottom:10px;">
+    <tr>
+        <td style='text-align:left'>
+            <%= paginate(results) %>
+        </td>
+        <td style='text-align:right'>
+						<% if results.total_count > 0 %>
+							<%= t('paging.display') %> <%= results.offset_value + 1 %> - <%= results.offset_value + results.length %> <%= t('paging.of') %> <%= results.total_count %>
+						<% else %>	
+							<%= t('paging.no_results') %>
+						<% end %>
+        </td>
+    </tr>
+</table>
