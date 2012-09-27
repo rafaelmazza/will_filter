@@ -1,0 +1,77 @@
+pt-BR:
+  loading: "Carregando..."
+  toggle_conditions: ""
+  match_conditions_html: "Considerar %{conditions} as seguintes condições"
+  filter:
+    select: "Selecione um filtro"
+    match:
+      all: "todas"
+      any: "qualquer"
+    hint:
+      no_filter: "Você não adicionou nenhuma condição para filtragem, portanto todos os resultados foram retornados. Utilize o botão \"Adicionar\" no canto inferior esquerdo para adicionar uma condição ou selecione um filtro pré-definido do menu acima."
+    save: "Salvar como..."
+    update: "Atualizar"
+    delete: "Remover"
+    export: "Exportar..."
+    conditions:
+      add: "+ Adicionar"
+      clear: "Limpar"
+    per_page: "Por Página"
+    submit: "Buscar"
+    select_saved: "-- Filtros Salvos --"
+    containers:
+      boolean:
+        true_label: "Verdadeiro"
+        false_label: "Falso"
+    order:
+      title: "Ordem"
+      desc: "decrescente"
+      asc: "crescente"
+    operators:
+      is: "é igual a"
+      is_not: "não é igual a"
+      is_in: "está em"
+      is_provided: "é presente"
+      is_not_provided: "não é presente"
+      contains: "contém"
+      does_not_contain: "não contém"
+      starts_with: "começa com"
+      ends_with: "termina com"
+      is_on: "em"
+      is_after: "depois de"
+      is_before: "antes de"
+      is_in_the_range: "no intervalo"
+      is_greater_than: "é maior que"
+      is_less_than: "é menor que"
+      is_filtered_by: "é filtrado por"
+    messages:
+      new_filter_name: "Please provide a name for the new filter:"
+      update_filter_name: "Please provide a name for this filter:"
+      delete_filter_confirmation: "Are you sure you want to delete this filter?"
+    errors:
+      messages:
+        required_conditions_not_met: "Filter must contain at least one of the following conditions: %{conditions}"      
+  calendar:
+    title: "Calendário"
+    set_date_and_time: "Definir data/horário"
+    cancel: "Cancelar"
+    time: "Horário"
+    expand: "expandir"
+  paging:
+    display: "Exibindo"
+    of: "de"
+    no_results: "Nenhum resultado encontrado"
+  export:
+    title: "Exportar"
+    name: "Nome"
+    type: "Tipo"
+    format: "Formato"
+    formats: "Formatos"
+    cancel: "Cancelar"
+    export: "Exportar"
+    custom_formats: "Formatos"
+    errors:
+      messages:
+        select_field: "Por favor, selecione pelo menos um campo para exportar."
+        select_format: "Por favor, selecione um formato para exportar."
+        format_not_supported: "The export format is not supported (%{format})"
